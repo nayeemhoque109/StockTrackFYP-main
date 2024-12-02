@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <section class = header>
+
+
+      <div class="dropdown">
+
+
+        <form class = "searchbar" action="/search-result" method="get">
+          <label for="keyword">Enter your search term:</label>
+          <input type="text" id="keyword" name="keyword" placeholder="Search..." required>
+          <button type="submit">Search</button>
+      </form>
+
+        <span>Menu</span>
+        <div class="dropdown-content">
+            <a href="about">About <%=shopName%></a>
+            <a href="register">Register with us</a>
+            <a href="listSI">List of Current Software Issue</a>
+            <a href="listStock">List of Current Hardware Issue</a>
+            <a href="login">Log into your account!</a>
+            <a href="logout">Log Out!</a>
+            <a href="removeuser">Remove a User</a>
+            <a href="GamesAPI">Check out some of these free games for PC!</a>
+        </div>
+    </div>
+
+    <h1 class = "register">Remove a user for <%=shopName%></h1>
+    <form class = "registerform" method="POST" action="/userremoved">
+        <p>Username: <input id="username" type="text" name="username" value="username" /></p>
+        <p>password: <input id="password" type="password" name="password" value="password" /></p>
+        <input type="submit" value="Remove" />
+      </form>
+    </section>
+  </body>
+</html>

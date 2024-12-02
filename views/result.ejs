@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+
+</head>
+<body>
+    <!-- Display the search result against the whole row in the database (not just name and UPC) -->
+    <h1>Search Results</h1>
+    <% if (results.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>UPC</th>
+                    <th>Quantity</th>
+                    <th>Expiry</th>
+                    <th>Date Added</th>
+                    <th>Date Purchased</th>
+                    <th>Wholesale Price</th>
+                    <th>Retail Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% results.forEach(result => { %>
+                    <tr>
+                        <td><%= result.name %></td>
+                        <td><%= result.upc %></td>
+                        <td><%= result.quantity %></td>
+                        <td><%= result.expiry %></td>
+                        <td><%= result.dateAdded %></td>
+                        <td><%= result.datePurchased %></td>
+                        <td><%= result.wholesalePrice %></td>
+                        <td><%= result.retailPrice %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>No results found.</p>
+    <% } %>
+
+    <footer class="footer">
+        <nav class="navbar">
+            <ul>
+                <li><a href="Dashboard">Dashboard</a></li>
+                <li><a href="addstockitem">Add Stock Item</a></li>
+                <li><a href="currencyX">CurrencyX</a></li>
+                <li><a href="expired">Expired</a></li>
+                <li><a href="liststock">List Stock</a></li>
+                <li><a href="sales">Sales</a></li>
+                <li><a href="upcomingExpiryitems">Upcoming Expiry Items</a></li>
+                <li><a href="wastageandreductions">Wastage and Reductions</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>

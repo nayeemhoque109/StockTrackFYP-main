@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Currency Exchange!</title>
+    <link rel="stylesheet" type="text/css" href="/currencyX.css" />
+</head>
+
+<body>
+    <section class="header">
+    </section>
+    <div class="container">
+        <h1>Exchange Rate Information</h1>
+        <p>Base currency: <%= result.convert_result.base %>
+        </p>
+        <p>Target currency: <%= result.convert_result.target %>
+        </p>
+        <p>Exchange rate: <%= result.convert_result.rate %>
+        </p>
+        <p>Last update time: <%= result.time_update.time_utc %>
+        </p>
+    </div>
+
+    <footer class="footer">
+        <nav class="navbar">
+            <ul>
+                <li><a href="Dashboard">Dashboard</a></li>
+                <li><a href="addstockitem">Add Stock Item</a></li>
+                <li><a href="currencyX">CurrencyX</a></li>
+                <li><a href="expired">Expired</a></li>
+                <li><a href="liststock">List Stock</a></li>
+                <li><a href="sales">Sales</a></li>
+                <li><a href="upcomingExpiryitems">Upcoming Expiry Items</a></li>
+                <li><a href="wastageandreductions">Wastage and Reductions</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+
+</html>
+
+
+
+
+

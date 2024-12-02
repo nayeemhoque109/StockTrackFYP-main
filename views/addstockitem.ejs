@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/addstock.css">
+</head>
+<body>
+    <div class="content">
+        <section class="header">
+            <h1><%= shopName %>: Add a Stock Item</h1>
+            <form class="add" method="POST" action="/stockItemAdded">
+                <p>Name: <input id="name" type="text" name="name" value="" required /></p>
+                <p>UPC: <input id="upc" type="text" name="upc" value="" required/></p>
+                <!-- Add a button for scanning barcode -->
+                <button id="scanBarcodeBtn" type="button">Scan Barcode</button>
+                <div id="qr-reader-container" style="display: none;"> <!-- Container initially hidden -->
+                    <div id="qr-reader" style="width: 300px; height: 300px;"></div> <!-- Barcode scanner container -->
+                </div>
+                <p>Quantity: <input id="quantity" type="number" name="quantity" value="" min="1" /></p>
+                <p>Expiry: <input id="expiry" type="date" name="expiry" value="" /></p>
+                <p>Date Added: <input id="dateAdded" type="date" name="dateAdded" value="" /></p>
+                <p>Date Purchased: <input id="datePurchased" type="date" name="datePurchased" value="" /></p>
+                <p>Wholesale Price £ : <input id="wholesalePrice" type="number" step="0.01" name="wholesalePrice" value="" /></p>
+                <p>Retail Price £ : <input id="retailPrice" type="number" step="0.01" name="retailPrice" value="" /></p>
+                <input type="submit" value="Add Stock Item" />
+            </form>
+
+            <form class="searchbar" action="/search-result" method="get">
+                <label for="keyword">Enter your search term:</label>
+                <input type="text" id="keyword" name="keyword" placeholder="Search..." required>
+                <button type="submit">Search</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Include the barcode scanning script -->
+    <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
+    <script>
+        // Function to handle successful barcode scanning
+        function onScanSuccess(decodedText, decodedResult) {
+            console.log(`Barcode scanned: ${decodedText}`);
+            document.getElementById('upc').value = decodedText; // Set the scanned barcode value to the UPC input field
+        }
+
+        // Initialize the barcode scanner
+        var html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", { fps: 10, qrbox: 250 });
+
+        // Add event listener for the scan barcode button
+        document.getElementById('scanBarcodeBtn').addEventListener('click', function() {
+            // Show the barcode scanner container
+            document.getElementById('qr-reader-container').style.display = 'block';
+            // Start scanning
+            html5QrcodeScanner.render(onScanSuccess);
+        });
+    </script>
+
+    <footer class="footer">
+        <nav class="navbar">
+            <ul>
+                <li><a href="Dashboard">Dashboard</a></li>
+                <li><a href="addstockitem">Add Stock Item</a></li>
+                <li><a href="currencyX">CurrencyX</a></li>
+                <li><a href="expired">Expired</a></li>
+                <li><a href="liststock">List Stock</a></li>
+                <li><a href="sales">Sales</a></li>
+                <li><a href="upcomingExpiryitems">Upcoming Expiry Items</a></li>
+                <li><a href="wastageandreductions">Wastage and Reductions</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
+
+

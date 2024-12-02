@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+  </head>
+  <body>
+
+    <section class = "header">
+
+      <form class = "searchbar" action="/search-result" method="get">
+        <label for="keyword">Enter your search term:</label>
+        <input type="text" id="keyword" name="keyword" placeholder="Search..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="dropdown">
+      <span>Menu</span>
+      <div class="dropdown-content">
+          <a href="about">About <%=shopName%></a>
+          <a href="register">Register with us</a>
+          <a href="listSI">List of Current Software Issue</a>
+          <a href="listStock">List of Current Hardware Issue</a>
+          <a href="login">Log into your account!</a>
+          <a href="logout">Log Out!</a>
+          <a href="removeuser">Remove a User</a>
+          <a href="GamesAPI">Check out some of these free games for PC!</a>
+      </div>
+  </div>
+    <h1><%=shopName%> </h1>
+    <h2>Here are the list for all users:</h2>
+    <ul>
+      <% Postedlist.forEach(function(userdetails) { %>
+        <li><%= userdetails.username %>, <%=userdetails.first_name%>, <%=userdetails.last_name%>, <%=userdetails.email%> </li>
+      <% }) %>
+    </ul>
+
+  </section>
+    </body>
+</html>

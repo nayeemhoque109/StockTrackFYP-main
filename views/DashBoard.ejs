@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to <%= shopName %></title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <section class="header">
+        <div class="left-section">
+            <h1>Welcome to <%= shopName %></h1>
+        </div>
+        <form class="searchbar" action="/search-result" method="get">
+            <label for="keyword">Enter your search term:</label>
+            <input type="text" id="keyword" name="keyword" placeholder="Search..." required>
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+    <section class="links">
+        <p><a href="listStock"> Add Stock and see Existing Stock Items!</a></p>
+        <!-- <p><a href="about">About <%= shopName %></a></p> -->
+        <p><a href="removeuser"> Delete your Account</a></p>
+        <p><a href="currencyX"> Convert Currency For Sales!</a></p>
+        <p><a href="Sales"> Sell Items here!</a></p>
+        <p><a href="upcomingExpiryitems"> Check expiring stock!</a></p>
+        <p><a href="expired"> Check if any items have expired and waste them!</a></p>
+        <p><a href="wastageAndReductions"> Wastage And Reductions</a></p>
+        <p><a href="logout"> Log Out!</a></p>
+                <!-- For Test Purposes -->
+        <!-- <p><a href="BCSTest"> BSC Test</a></p> -->
+        <!-- <p><a href="listusers">List of Users!</a></p> -->
+    </section>
+
+    <img src="images/logo.png" alt="StockTrack Logo" class="logo">
+
+
+    
+</body>
+</html>
+

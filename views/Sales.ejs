@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    body {
+        background-color: #4685c4;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+    
+    .content {
+        min-height: calc(100vh - 60px); /* Adjust based on the footer height */
+    }
+    
+    .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 10px 0;
+    }
+    
+    .navbar {
+        text-align: center;
+    }
+    
+    .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .navbar ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+    
+    .navbar ul li:last-child {
+        margin-right: 0;
+    }
+    
+    .navbar ul li a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    .navbar ul li a:hover {
+        text-decoration: underline;
+    }
+    
+    </style>
+    <title>Sales</title>
+</head>
+<body>
+    <h1>Sales</h1>
+    <% if (errorMessage) { %>
+        <p><%= errorMessage %></p>
+    <% } %>
+    <form action="/processSale" method="post">
+        <label for="keyword">Item Name or UPC:</label>
+        <input type="text" name="keyword" id="keyword"><br>
+        <label for="quantityToSell">Quantity to Sell:</label>
+        <input type="number" name="quantityToSell" id="quantityToSell" min="1"><br>
+        <button type="button" onclick="scanBarcode()">Scan Barcode</button><br>
+        <button type="submit">Sell</button>
+    </form>
+    <div id="qr-reader" style="width: 100%; max-width: 600px; margin: 0 auto;"></div>
+
+    <!-- Include the library -->
+    <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
+
+    <!-- Script to handle barcode scanning -->
+    <script>
+        function onScanSuccess(decodedText, decodedResult) {
+            console.log(`Code scanned = ${decodedText}`, decodedResult);
+            // Fill the keyword field with the scanned barcode
+            document.getElementById('keyword').value = decodedText;
+        }
+
+        function scanBarcode() {
+            var html5QrcodeScanner = new Html5QrcodeScanner(
+                "qr-reader", { fps: 10, qrbox: 250 });
+            html5QrcodeScanner.render(onScanSuccess);
+        }
+    </script>
+
+    <!-- HTML element for QR code reader -->
+    <div id="qr-reader"></div>
+
+    <footer class="footer">
+        <nav class="navbar">
+            <ul>
+                <li><a href="Dashboard">Dashboard</a></li>
+                <li><a href="addstockitem">Add Stock Item</a></li>
+                <li><a href="currencyX">CurrencyX</a></li>
+                <li><a href="expired">Expired</a></li>
+                <li><a href="liststock">List Stock</a></li>
+                <li><a href="sales">Sales</a></li>
+                <li><a href="upcomingExpiryitems">Upcoming Expiry Items</a></li>
+                <li><a href="wastageandreductions">Wastage and Reductions</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
+
+

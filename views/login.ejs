@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <title>Log into your account for <%= shopName %></title>
+  <link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body>
+  <div class="login-container">
+    <img src="images/logo.png" alt="StockTrack Logo" class="logo">
+    <h1 class="register">Log in <%= shopName %></h1>
+    <form class="registerform" method="POST" action="/loggedin">       
+      <p>Username: <input id="username" type="text" name="username" placeholder="Enter your username" /></p>
+      <p>Password: <input id="password" type="password" name="password" placeholder="Enter your password" /></p>
+      <input type="submit" value="Login" />
+    </form>
+  </div>
+</body>
+</html>
+

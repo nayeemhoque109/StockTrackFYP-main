@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <title>Register for <%= shopName %></title>
+  <link rel="stylesheet" type="text/css" href="register.css">
+</head>
+<body>
+  <img src="images/logo.png" alt="StockTrack Logo" class="logo">
+  <div class="register-container">
+    <h1 class="register">Register for <%= shopName %></h1>
+    <form class="registerform" method="POST" action="/registered">
+      <p>First name: <input id="first" type="text" name="first" placeholder="Enter your first name" /></p>
+      <p>Last name: <input id="last" type="text" name="last" placeholder="Enter your last name" /></p>
+      <p>Email: <input id="email" type="email" name="email" placeholder="Enter your email" /></p>
+      <p>Username: <input id="username" type="text" name="username" placeholder="Enter your username" /></p>
+      <p>Password (Min. 8 Characters and a Number): <input id="password" type="password" name="password" pattern="^(?=.*\d).{8,}$" title="Password must be at least 8 characters long and contain at least one number" required /></p>
+      <input type="submit" value="Register" />
+    </form>
+  </div>
+</body>
+</html>
+

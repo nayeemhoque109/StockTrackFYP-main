@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expired Page</title>
+    <link rel="stylesheet" type="text/css" href="/XPD.css" />
+
+</head>
+<body>
+    <div class="container">
+        <h1>Expired Items</h1>
+        <% stockItems.forEach(function(item) { %>
+            <div>
+                <p>Name: <%= item.name %></p>
+                <p>UPC: <%= item.upc %></p>
+                <p>Quantity: <%= item.quantity %></p>
+                <p>Expiry Date: <%= item.expiry %></p>
+                <p>Date Added: <%= item.dateAdded %></p>
+                <form action="/waste" method="POST">
+                    <input type="hidden" name="itemId" value="<%= item.id %>">
+                    <button type="submit">Waste</button>
+                </form>
+            </div>
+        <% }); %>
+    </div>
+
+    <footer class="footer">
+        <nav class="navbar">
+            <ul>
+                <li><a href="Dashboard">Dashboard</a></li>
+                <li><a href="addstockitem">Add Stock Item</a></li>
+                <li><a href="currencyX">CurrencyX</a></li>
+                <li><a href="expired">Expired</a></li>
+                <li><a href="liststock">List Stock</a></li>
+                <li><a href="sales">Sales</a></li>
+                <li><a href="upcomingExpiryitems">Upcoming Expiry Items</a></li>
+                <li><a href="wastageandreductions">Wastage and Reductions</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+</html>
+

@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Expiry Items</title>
+    <link rel="stylesheet" href="XP.css"> 
+</head>
+<body>
+    <h1 class="title">Upcoming Expiry Items</h1>
+    <section id="slideshow-container">
+        <% items.forEach(item => { %>
+            <div class="slideshow-item">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>UPC</th>
+                            <th>Expiry Date</th>
+                            <th>Suggested Retail Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><%= item.name %></td>
+                            <td><%= item.upc %></td>
+                            <td><%= item.expiry %></td>
+                            <td>£ <%= item.suggestedRetailPrice.toFixed(2) %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        <% }); %>
+    </section>
+
+    <button id="nextButton">Next</button>
+
+    <a href="wastageAndReductions" class="coral-button">Update Prices from here!</a>
+    
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slideshow-item');
+
+        function showSlide(index) {
+            slides.forEach(slide => {
+                slide.style.display = 'none';
+            });
+            slides[index].style.display = 'block';
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        // Show the first slide initially
+        showSlide(currentIndex);
+
+        document.getElementById('nextButton').addEventListener('click', nextSlide);
+    </script>
+
+<footer class="footer">
+    <nav class="navbar">
+        <ul>
+            <li><a href="Dashboard">Dashboard</a></li>
+            <li><a href="addstockitem">Add Stock Item</a></li>
+            <li><a href="currencyX">CurrencyX</a></li>
+            <li><a href="expired">Expired</a></li>
+            <li><a href="liststock">List Stock</a></li>
+            <li><a href="sales">Sales</a></li>
+            <li><a href="upcomingExpiryitems">Upcoming Expiry Items</a></li>
+            <li><a href="wastageandreductions">Wastage and Reductions</a></li>
+        </ul>
+    </nav>
+</footer>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wastage and Reductions</title>
+    <style>body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+    
+    .content {
+        min-height: calc(100vh - 60px); /* Adjust based on the footer height */
+    }
+    
+    .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 10px 0;
+    }
+    
+    .navbar {
+        text-align: center;
+    }
+    
+    .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .navbar ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+    
+    .navbar ul li:last-child {
+        margin-right: 0;
+    }
+    
+    .navbar ul li a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    .navbar ul li a:hover {
+        text-decoration: underline;
+    }
+    </style>
+</head>
+<body>
+    <h1>Wastage and Reductions</h1>
+    <form action="/processWastageAndReductions" method="post">
+        <div>
+            <label for="nameUPC">Name/UPC:</label>
+            <input type="text" id="nameUPC" name="nameUPC" required>
+        </div>
+        <div>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="0">
+        </div>
+        <div>
+            <label for="retailPrice">Retail Price:</label>
+            <input type="number" id="retailPrice" name="retailPrice" step="0.01" min="0">
+        </div>
+        <button type="button" id="scanBarcodeButton">Scan Barcode</button> <!-- Change type to "button" -->
+        <button type="submit">Submit</button>
+    </form>
+    <div id="qr-reader" style="width: 600px; display: none;"></div> <!-- Barcode scanner element, initially hidden -->
+    <%=errorMessage%>
+
+    <!-- Include the library -->
+    <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
+    <script>
+        // Function to handle successful barcode scan
+        function onScanSuccess(decodedText, decodedResult) {
+            console.log(`Code scanned = ${decodedText}`, decodedResult);
+            // Update the scanned value in the "Name/UPC" input field
+            document.getElementById('nameUPC').value = decodedText;
+        }
+
+        // Initialize the barcode scanner
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+            "qr-reader", { fps: 10, qrbox: 250 });
+        
+        // Function to show the barcode scanner
+        function showBarcodeScanner() {
+            document.getElementById('qr-reader').style.display = 'block';
+            // Start the barcode scanner
+            html5QrcodeScanner.render(onScanSuccess);
+        }
+
+        // Event listener for the "Scan Barcode" button
+        document.getElementById('scanBarcodeButton').addEventListener('click', showBarcodeScanner);
+    </script>
+
+<footer class="footer">
+    <nav class="navbar">
+        <ul>
+            <li><a href="Dashboard">Dashboard</a></li>
+            <li><a href="addstockitem">Add Stock Item</a></li>
+            <li><a href="currencyX">CurrencyX</a></li>
+            <li><a href="expired">Expired</a></li>
+            <li><a href="liststock">List Stock</a></li>
+            <li><a href="sales">Sales</a></li>
+            <li><a href="upcomingExpiryitems">Upcoming Expiry Items</a></li>
+            <li><a href="wastageandreductions">Wastage and Reductions</a></li>
+        </ul>
+    </nav>
+</footer>
+
+</body>
+</html>

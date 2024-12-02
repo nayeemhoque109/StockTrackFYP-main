@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index1.css">
+</head>
+<body>
+  <div class="about-container">
+    <h1>StockTrack</h1>
+    <img src="images/Logo.png" alt="Logo 1" class="logo">
+    <p>Inventory Management made simple!</p>
+    <p>
+        Welcome to our project focused on developing and critically evaluating an application tailored for small businesses, including supermarkets and local stores, to combat food wastage. With a foundation in key areas of computer science such as algorithms, data structures, databases, and image processing and vision, our aim is to create an accessible and user-friendly solution. Our project objectives encompass evaluating existing stock management and inventory systems, identifying underutilized features, implementing appropriate data structures, devising algorithms for optimal pricing of expiring items, designing an intuitive GUI for enhanced usability, and rigorously testing each aspect of the application for effectiveness in reducing food wastage. Additionally, we are committed to conducting market research within our target demographic of small food and drink businesses to ensure our application meets their needs and effectively addresses the challenge of food wastage.
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="slideshow-container">
+      <div class="slideshow-slide fade">
+          <img src="images/computer.jpeg" alt="Image 1">
+          <div class="caption">Access your business model. Any time! Any Device! Whether it is on the go or from your own house!</div>
+      </div>
+      
+      <div class="slideshow-slide fade">
+          <img src="images/phone.jpg" alt="Image 2">
+          <div class="caption">Access your business model. Any time! Any Device! Whether it is on the go or from your own house!</div>
+      </div>
+      
+      <div class="slideshow-slide fade">
+          <img src="images/tablet.jpg" alt="Image 3">
+          <div class="caption">Access your business model. Any time! Any Device! Whether it is on the go or from your own house!</div>
+      </div>
+    </div>
+
+    <div class="youtube-video-container">
+        <iframe width="560" height="315" src="<iframe width="1829" height="736" src="https://www.youtube.com/embed/9EErwSgvqYI" title="Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+  </div>
+
+  <script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var slides = document.getElementsByClassName("slideshow-slide");
+        for (var i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        slides[slideIndex-1].style.display = "block";  
+        setTimeout(showSlides, 4000); 
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
